@@ -1,0 +1,98 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample documentation for the open github api. The api is located at https://api.github.com/",
+    "version": "0.0.1",
+    "title": "Github API",
+    "contact": {
+      "email": "john.doe@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/swagger-api/swagger-ui/blob/master/LICENSE"
+    }
+  },
+  "host": "api.github.com",
+  "basePath": "/",
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Info"
+        ],
+        "description": "Get information about the Github API",
+        "responses": {
+          "200": {
+            "description": "successfully got info",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "current_user_url": {
+                  "type": "string"
+                },
+                "authorizations_url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Get list of users from github",
+        "responses": {
+          "200": {
+            "description": "Successfully got users",
+            "schema": {
+              "type": "array",
+              "items": [
+                {}
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/users/{username}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Get a github user by passing in their username",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "The github username of the user",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully got github user",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "login": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
